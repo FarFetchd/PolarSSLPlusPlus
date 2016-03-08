@@ -64,7 +64,7 @@ void clientToSelf()
 	
 	PolarTLSClient client;
 	
-	client.setServerCert("/home/fred/teaching/cs438-sp15/mp1/the_servers_cert.crt");
+	client.setServerCert("the_servers_cert.crt");
 	client.connectTLS("127.0.0.1", 7777);
 	std::string say_hello("Hello there!");
 	client.sendTLS((const unsigned char*)say_hello.c_str(), say_hello.length());

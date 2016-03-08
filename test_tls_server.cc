@@ -19,11 +19,12 @@ int main()
 	
 	PolarTLSServer server;
 	
-	if(!(server.loadCert("/home/fred/teaching/cs438-sp15/mp1/the_servers_cert.crt")&&
-	server.loadKey("/home/fred/teaching/cs438-sp15/mp1/the_servers_key.key")))
+	if(!(server.loadCert("the_servers_cert.crt") && server.loadKey("the_servers_key.key")))
 	{
-		cerr << "hmm... a load failed" << endl;
+		cerr << "The server's cert or key file is missing." << endl;
+		return 1;
 	}
+	
 	server.acceptTLS(accepted_socket);
 	
 	unsigned char client_says[100]; memset(client_says, 0, 100);
